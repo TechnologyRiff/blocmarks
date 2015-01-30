@@ -1,1 +1,2 @@
-application.example.yml
+MAILGUN_SMTP_LOGIN:
+MAILGUN_SMTP_PASSWORD:
