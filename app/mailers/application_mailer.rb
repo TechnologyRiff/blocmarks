@@ -1,1 +1,4 @@
-application_mailer.rb
+class ApplicationMailer < ActionMailer::Base
+  default from: 'technologyriff@gmail.com'
+  layout 'mailer'
+end
