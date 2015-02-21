@@ -20,7 +20,7 @@ class LikesController < ApplicationController
       flash[:notice] = "Like deleted."
       redirect_to @bookmark
     else
-      flash[:error] "Please try again later."
+      flash[:error] = "Please try again later."
       redirect_to @bookmark
     end
   end
