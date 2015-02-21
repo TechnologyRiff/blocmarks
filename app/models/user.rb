@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
          has_many :topics
+         has_many :bookmarks, dependent: :destroy
+         has_many :likes, dependent: :destroy
 
   def liked(post)
     likes.where(bookmark_id: bookmark.id).first

@@ -5,9 +5,11 @@ class LikesController < ApplicationController
     like = current_user.likes.build(bookmark: @bookmark)
 
     if like.save
-      #add code to generate a success flash and redirect to @bookmark
+      flash[notice:] = "Topic bookmarked."
+      redirect_to @bookmark
     else
-      #add code to generate a failure flash and redirect to @bookmark
+      flash[notice:] = "Bookmark deleted."
+      redirect_to @bookmark
     end
   end
 
