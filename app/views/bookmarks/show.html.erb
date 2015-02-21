@@ -1,2 +1,4 @@
-<h1>Bookmarks#show</h1>
-<p>Find me in app/views/bookmarks/show.html.erb</p>
+<h1>Bookmarks</h1>
+<% @bookmarks.each do |bookmark| %>
+  <%= link_to "#{bookmark.url}" @bookmark.url %>
+<% end %>
