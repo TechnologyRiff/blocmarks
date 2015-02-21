@@ -5,7 +5,7 @@ def create
   puts "INCOMING PARAMS HERE: #{params}"
   @user = User.find(params[:sender])#Find the user by using params[:sender]
   @topic = Topic.find(params[:subject]) #Find the topic by using params[:subject]
-  @url = params["body-plain"]
+  #url = params["body-plain"]
   #Assign the url to a variable after retrieving it from params["body-plain"]
 
   if @user.nil? 
