@@ -1,3 +1,3 @@
-class BookmarksPolicy::ApplicationPolicy
+class BookmarksPolicy < ApplicationPolicy
 
 end
