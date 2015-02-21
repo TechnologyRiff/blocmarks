@@ -5,10 +5,10 @@ class LikesController < ApplicationController
     like = current_user.likes.build(bookmark: @bookmark)
 
     if like.save
-      flash[notice:] = "Topic bookmarked."
+      flash[:notice] = "Bookmark liked."
       redirect_to @bookmark
     else
-      flash[notice:] = "Bookmark deleted."
+      flash[:error] = "Please try again later."
       redirect_to @bookmark
     end
   end
@@ -17,9 +17,11 @@ class LikesController < ApplicationController
     #get the bookmark from the params
     #find the current user's like with the ID in the params
     if like.destroy
-      #flash success and redirect to @bookmark
+      flash[:notice] = "Like deleted."
+      redirect_to @bookmark
     else
-      #flash error and redirect to @bookmark
+      flash[:error] "Please try again later."
+      redirect_to @bookmark
     end
   end
 
