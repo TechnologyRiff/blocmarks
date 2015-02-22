@@ -1,0 +1,4 @@
+<h5>Bookmarks</h5>
+<% @topic.bookmarks.each do |bookmark| %>
+  <%= link_to "#{bookmark.url}", @bookmark.url %>
+<% end %>

@@ -17,7 +17,6 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
-    authorize @topic
   end
 
   def create
@@ -34,7 +33,6 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
-    authorize @topic
     if @topic.update_attributes(topic_params)
       flash[:notice] = "Topic was updated successfully."
       redirect_to topics_path

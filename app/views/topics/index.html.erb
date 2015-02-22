@@ -6,7 +6,7 @@
         </p>
       <% end %>
   <% @topics.each do |topic| %>
-    <%= link_to "#{topic.title}", topic %>
+    <%= link_to "#{topic.title}", topic %><br />
   <% end %>
   <%= will_paginate @topics %>
   <br \>
