@@ -6,10 +6,10 @@
         </p>
       <% end %>
   <% @topics.each do |topic| %>
-    <%= link_to "#{topic.title}", @topic %>
+    <%= link_to "#{topic.title}", topic %>
   <% end %>
   <%= will_paginate @topics %>
-
+  <br \>
   <% if current_user %>
     <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
   <% end %>

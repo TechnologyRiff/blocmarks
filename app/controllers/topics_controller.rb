@@ -7,12 +7,11 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    authorize @topic
     @bookmarks = @topic.bookmarks.includes(:user).includes(:likes).paginate(page: params[:page], per_page: 10)
   end
 
   def new
-    @topic = Topic.new(topic_params)
+    @topic = Topic.new
     @topic.user = current_user
   end
 
@@ -24,7 +23,6 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @topic.user = current_user
-    authorize @topic
     if @topic.save
       flash[:notice] = "Topic was saved successfully."
       redirect_to topics_path
