@@ -15,7 +15,7 @@ class LikesController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:bookmark_id])
-    @like = like.find(params[:id]
+    @like = @bookmark.likes.find(params[:id]
     if @like.destroy
       flash[:notice] = "Like deleted."
       redirect_to [@bookmark.topic, @bookmark]
