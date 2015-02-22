@@ -1,8 +1,8 @@
 class TopicsController < ApplicationController
-  
+  before_action :authenticate_user!
+
   def index
-    @topics = Topic.visible_to(current_user).paginate(page: params[:page], per_page: 10)
-    authorize @topics
+    @topics = Topic.all.paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -12,8 +12,8 @@ class TopicsController < ApplicationController
   end
 
   def new
-    @topic = Topic.new
-    authorize @topic
+    @topic = Topic.new(topic_params)
+    @topic.user = current_user
   end
 
   def edit
@@ -22,8 +22,28 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.build(topic_params)
-    @topic.save
+    @topic = Topic.new(topic_params)
+    @topic.user = current_user
+    authorize @topic
+    if @topic.save
+      flash[:notice] = "Topic was saved successfully."
+      redirect_to topics_path
+    else
+      flash[:error] = "Error saving topic, please try again."
+      redirect_to topics_path 
+    end
+  end
+
+  def update
+    @topic = Topic.find(params[:id])
+    authorize @topic
+    if @topic.update_attributes(topic_params)
+      flash[:notice] = "Topic was updated successfully."
+      redirect_to topics_path
+    else
+      flash[:error] = "Topic was not updated. Please try again."
+      redirect_to topics_path
+    end
   end
 
   private
