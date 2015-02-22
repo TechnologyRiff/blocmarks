@@ -26,8 +26,10 @@ class TopicsController < ApplicationController
     @topic.save
   end
 
-private
+  private
   def topic_params
     params.require(:topic).permit(:title)
+  end
+
 end
 
