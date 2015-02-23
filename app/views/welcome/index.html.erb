@@ -1,19 +1,57 @@
 <div class="container">
-  <div class="jumbotron">
-    <div class="row">
-      <h1>Blocmarks</h1>
-      <p>Are you looking for a new way to organize your bookmarks and share them with friends?</p>
-    </div>
-    <div class="row">
-    <% unless current_user %>
-      <div class="col-md-6 pull-left">
-        <h2><%= link_to "Create a new account", new_user_registration_path %></h2><br />
+  <% unless current_user %>
+    <div class="jumbotron no-margin">
+      <div class="row no-margin no-padding">
+        <h1>Blocmarks</h1>
+          <p>Are you looking for a new way to organize your bookmarks and share them with friends?</p>
       </div>
-      <div class="col-md-6">
-        <h2>Already have an account? </h2> 
-        <h4><%= link_to "Sign in", new_user_session_path %></h4>
+      <div class="row no-margin">
+        <div class="col-md-6 pull-left no-padding">
+          <h2><%= link_to "Create a new account", new_user_registration_path %></h2><br />
+        </div>
+        <div class="col-md-6 no-padding">
+          <h2>Already have an account? </h2> 
+          <h4><%= link_to "Sign in", new_user_session_path %></h4>
+        </div>
       </div>
-    <% end %>
     </div>
-  </div>
+  <% else %>
+    <div class="jumbotron no-margin">
+      <div class="row no-margin no-padding">
+        <h1>Blocmarks</h1>
+          <p>Are you looking for a new way to organize your bookmarks and share them with friends?</p>
+      </div>
+    </div>
+      <div class="row no-margin">
+        <div class="col-md-4 pull-left">
+        <br />
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+              <h3><%= link_to "Topics", topics_path %></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+        <br />
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+              <h3>?</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <br />
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+              <h3>?</h3>
+            </div>
+          </div>
+        </div>
+  <% end %>
 </div> 

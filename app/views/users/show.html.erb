@@ -1,2 +1,17 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row no-margin">
+  <h1><%= "#{current_user.name}" %></h1>
+    <div class="col-md-6 no-padding">
+      <h3>My Topics</h3>
+      <% current_user.topics.each do |topic| %>
+        <%= link_to "#{topic.title}", topic %><br />
+        <% topic.bookmarks.each do |bookmark| %>
+          <%= link to "#{bookmark.url}", bookmark.url %><br />
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-6 no-padding">
+      <h3>Topics and Bookmarks I Like</h3>
+    </div>
+  </div>
+</div>

@@ -16,15 +16,19 @@
             <li><%= link_to "Topics", topics_path %></li>
                 <div class='pull-right user-info'>
                   <% if current_user %>
-                  Hello <%= current_user.name || current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+                  <li><%= link_to (current_user.name || current_user.email), user_path(current_user) %>
+                  </li>
+                  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+                  </li>
                   <% else %>
                     <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or
                     <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
                   <% end %>
                 </div>
        </ul>
-    <%= yield %>
       </div>
+    <%= yield %>
+      
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
-@import "bootstrap-sprockets";
+@import "bootswatch/lumen/variables";
 @import "bootstrap";
-@import "bootstrap/variables";
+@import "bootswatch/lumen/bootswatch";
 
 .user-info {
   margin-top: 9px;
@@ -9,4 +9,12 @@
 
 .nav {
   margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.no-padding {
+  padding: 0px;
+}
+.no-margin {
+  margin: 0px;
 }
