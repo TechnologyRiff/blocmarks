@@ -16,11 +16,13 @@ ActiveRecord::Schema.define(version: 20150130050525) do
   create_table "bookmarks", force: true do |t|
     t.string   "url"
     t.integer  "topic_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "bookmarks", ["topic_id"], name: "index_bookmarks_on_topic_id"
+  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
 
   create_table "topics", force: true do |t|
     t.string   "title"

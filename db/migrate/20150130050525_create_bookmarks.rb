@@ -3,6 +3,7 @@ class CreateBookmarks < ActiveRecord::Migration
     create_table :bookmarks do |t|
       t.string :url
       t.references :topic, index: true
+      t.references :user, index: true
 
       t.timestamps
     end
