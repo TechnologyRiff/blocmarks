@@ -14,6 +14,7 @@ def create
   # end
 
   @bookmark = Bookmark.new(user: @user, topic: @topic, url: @url)
+  authorize @bookmark
   @bookmark.save
 
     head 200

@@ -1,15 +1,19 @@
-<h1>Topics</h1>
- <%= form_tag topics_path, method: :get do %>
-        <p>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil %>
-        </p>
+<div class="container">
+  <div class="row">
+    <h1>Topics</h1>
+     <%= form_tag topics_path, method: :get do %>
+            <p>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", :name => nil %>
+            </p>
+          <% end %>
+      <% @topics.each do |topic| %>
+        <%= link_to "#{topic.title}", topic %><br />
       <% end %>
-  <% @topics.each do |topic| %>
-    <%= link_to "#{topic.title}", topic %><br />
-  <% end %>
-  <%= will_paginate @topics %>
-  <br \>
-  <% if current_user %>
-    <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
-  <% end %>
+      <%= will_paginate @topics %>
+      <br \>
+      <% if current_user %>
+        <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+      <% end %>
+  </div>
+</div>
