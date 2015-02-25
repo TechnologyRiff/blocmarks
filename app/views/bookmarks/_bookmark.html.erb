@@ -1,5 +1,2 @@
-<h5>Bookmarks</h5>
-<% @topic.bookmarks.each do |bookmark| %>
-  <%= link_to "#{bookmark.url}", bookmark.url %>
-    <%= render partial: 'likes/like', locals: { user_id: current_user.id, bookmark_id: bookmark.id } %>
-<% end %>
+<%= link_to "#{bookmark.url}", bookmark.url %>
+<%= render partial: 'likes/like', locals: { user_id: current_user.id, bookmark: bookmark } %>

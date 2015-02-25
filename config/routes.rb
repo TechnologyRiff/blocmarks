@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get 'users/show'
 
   resources :topics do
-    resources :bookmarks, except: [:index] do
-      resources :likes, only: [:create, :destroy]
-    end
+    resources :bookmarks, except: [:index, :new]
+  end
+
+  resources :bookmarks, only: [:index] do
+    resources :likes, only: [:create, :destroy]
   end
 
   devise_for :users

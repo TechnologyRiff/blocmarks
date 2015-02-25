@@ -26,5 +26,4 @@ class UsersController < ApplicationController
     @like_bookmarks = Like.where(user_id: current_user.id)
   end   
     
-  end
 end

@@ -6,7 +6,7 @@
       <% current_user.topics.each do |topic| %>
         <%= link_to "#{topic.title}", topic %><br />
         <% topic.bookmarks.each do |bookmark| %>
-          <%= link to "#{bookmark.url}", bookmark.url %><br />
+          <%= link_to "#{bookmark.url}", bookmark.url %><br />
         <% end %>
       <% end %>
     </div>

@@ -39,7 +39,7 @@
             <div class="panel-heading">
             </div>
             <div class="panel-body">
-              <h3>?</h3>
+              <h3><%= link_to "My Bookmarks", bookmarks_path(current_user) %></h3>
             </div>
           </div>
         </div>
@@ -49,7 +49,14 @@
             <div class="panel-heading">
             </div>
             <div class="panel-body">
-              <h3>?</h3>
+            <% if @like_bookmarks %>
+              <h3>My Likes</h3>
+              <% @like_bookmarks.each do |bookmark| %>
+              <%= link_to "#{bookmark.url}", @bookmark.url %>
+              <% end %>
+            <% else %>
+              <h3><%= link_to "My Likes", bookmarks_path %></h3>
+            <% end %>
             </div>
           </div>
         </div>

@@ -1,6 +1,5 @@
 <div class="container">
   <h1>Bookmarks</h1>
-  <% @bookmarks.each do |bookmark| %>
-    <%= link_to "#{bookmark.url}" @bookmark.url %>
-  <% end %>
+    <%= render partial: 'likes/like', locals: { bookmark: @bookmark, user_id: current_user.id } %>
+    <%= link_to "#{@bookmark.url}", @bookmark.url %>
 </div>

@@ -3,13 +3,18 @@
 @import "bootstrap";
 @import "bootswatch/lumen/bootswatch";
 
+
 .user-info {
   margin-top: 9px;
 }
 
 .nav {
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+}
+.navbar {
+  height: 57px;
+  nav-default-bg: #75CAEB;
 }
 
 .no-padding {
@@ -17,4 +22,16 @@
 }
 .no-margin {
   margin: 0px;
+}
+
+.btn-top {
+  margin-top: 10px;
+}
+
+.field-small {
+  width: 40%;
+}
+
+#search {
+  padding-top: 5px;
 }

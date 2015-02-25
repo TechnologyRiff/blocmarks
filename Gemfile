@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'activesupport'
 gem 'figaro'
+gem 'faker'
 gem 'pundit'
 gem 'will_paginate', '~> 3.0.5'
 # bundle exec rake doc:rails generates the API under doc/api.
