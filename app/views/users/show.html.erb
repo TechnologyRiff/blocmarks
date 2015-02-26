@@ -1,17 +1,26 @@
 <div class="container">
   <div class="row">
   <h1><%= "#{current_user.name}" %></h1>
-    <div class="col-md-6">
-      <h3>My Topics</h3>
+    <div class="col-md-4">
+      <h2>My Topics</h2>
       <% current_user.topics.each do |topic| %>
-        <%= link_to "#{topic.title}", topic %><br />
+        <h3><%= link_to "#{topic.title}", topic %><br /></h3>
         <% topic.bookmarks.each do |bookmark| %>
-          <%= link_to "#{bookmark.url}", bookmark.url %><br />
+        <h5><%= link_to "#{bookmark.url}", bookmark.url %><br /></h5>
         <% end %>
       <% end %>
     </div>
-    <div class="col-md-6">
-      <h3>Topics and Bookmarks I Like</h3>
+    <div class="col-md-4">
+      <h2>Bookmarks I Created</h2>
+        <% current_user.bookmarks.each do |bookmark| %>
+        <h5><%= link_to "#{bookmark.url}", bookmark.url %><br /></h5>
+        <% end %>
+    </div>
+    <div class="col-md-4">
+      <h2>Bookmarks I Liked</h2>
+        <% @like_bookmarks.each do |bookmark| %>
+        <h5><%= link_to "#{bookmark.url}", bookmark.url %><br /></h5>
+        <% end %>
     </div>
   </div>
 </div>
