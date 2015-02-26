@@ -13,13 +13,13 @@
     <div class="col-md-4">
       <h2>Bookmarks I Created</h2>
         <% current_user.bookmarks.each do |bookmark| %>
-        <h5><%= link_to "#{bookmark.url}", bookmark.url %><br /></h5>
+        <h5><%= "#{bookmark.url}" %><br /></h5>
         <% end %>
     </div>
     <div class="col-md-4">
       <h2>Bookmarks I Liked</h2>
         <% @like_bookmarks.each do |bookmark| %>
-        <h5><%= link_to "#{bookmark.url}", bookmark.url %><br /></h5>
+        <h5><%= "#{bookmark}" %><br /></h5>
         <% end %>
     </div>
   </div>
