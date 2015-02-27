@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <%= Like.pluck(:bookmark_id) %>
-    <% current_user.likes do |bookmark| %>
+    <% Like.pluck(:bookmark_id) %>
+    <% current_user.bookmarks do |bookmark| %>
       <%= link_to "#{bookmark.url}", @bookmark.url %>
       <%= render partial: 'likes/like', collection: @likes, locals: { bookmark_id: bookmark.id } %><br />
     <% end %>

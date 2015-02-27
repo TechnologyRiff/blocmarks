@@ -17,15 +17,16 @@ before_action :load_bookmark_and_like
 
   def destroy
     @bookmark = Bookmark.find(params[:bookmark_id])
-    @like = Like.find(params[:id])
+    @likes = @bookmark.likes
+    @like = @likes.find(params[:id]) 
     authorize @like
 
     if @like.destroy
       flash[:notice] = "Like deleted."
-      redirect_to topic_bookmark_path
+      redirect_to :back
     else
       flash[:error] = "Please try again later."
-      redirect_to topic_bookmark_path
+      redirect_to :back
     end
   end
 

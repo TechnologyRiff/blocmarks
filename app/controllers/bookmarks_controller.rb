@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
   def index
     @topics = Topic.all
     @user = current_user
-    @bookmarks = current_user.bookmarks
+    @bookmarks = Bookmark.all
   end
 
   def show
