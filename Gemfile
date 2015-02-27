@@ -20,6 +20,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
+gem 'devise_invitable', '~> 1.4.1'
 gem 'activesupport'
 gem 'figaro'
 gem 'faker'
