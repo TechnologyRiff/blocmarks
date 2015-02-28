@@ -2,7 +2,7 @@
   <div class="row">
     <h1>Topics</h1>
       <% @topics.each do |topic| %>
-        <%= link_to "#{topic.title}", topic %><br />
+        <h3><%= link_to "#{topic.title}", topic %></h3>
       <% end %>
       <br \>
       <% if current_user %>
