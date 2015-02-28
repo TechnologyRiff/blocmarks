@@ -7,7 +7,9 @@ def create
   @topic = Topic.find_or_create_by(title: params[:subject])
   @url = params["stripped-text"]
 
-  # if @user.nil? 
+  if @user.nil? 
+    User.invite!(email: params[:sender], name: params[:sender])
+  end
   #   @user = User.new(params[:sender])
   #   @user.save #check if the user is nil, if so , create and save a new user
   # else 
