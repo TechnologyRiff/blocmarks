@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-    <h1>Topics</h1>
+    <h1>All Topics</h1>
       <% @topics.each do |topic| %>
         <h3><%= link_to "#{topic.title}", topic %></h3>
       <% end %>
       <br \>
       <% if current_user %>
-        <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+      <%= link_to "My Topics", topics_my_topics_path, class: 'btn btn-info btn-bottom' %>  <%= link_to "New Topic", new_topic_path, class: 'btn btn-success btn-bottom' %>
       <% end %>
   </div>
 </div>

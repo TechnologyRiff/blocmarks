@@ -13,4 +13,7 @@ class User < ActiveRecord::Base
   def liked(bookmark)
     likes.where(bookmark_id: bookmark.id, user_id: id).first
   end
+
+  scope :visible_to, -> (user) { user ? all : where(public: true) }
+
 end

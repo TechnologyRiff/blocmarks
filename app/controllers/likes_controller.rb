@@ -8,10 +8,10 @@ before_action :load_bookmark_and_like
 
     if @like.save
       flash[:notice] = "Bookmark liked."
-      redirect_to bookmarks_path
+      redirect_to :back
     else
       flash[:error] = "Please try again later."
-      redirect_to bookmarks_path
+      redirect_to :back
     end
   end
 
