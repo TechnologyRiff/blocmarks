@@ -2,13 +2,10 @@ class IncomingController < ApplicationController
 skip_before_action :verify_authenticity_token, only: [:create]
 
   def create
-    #puts "INCOMING PARAMS HERE: #{params}"
     @user = User.find_by(email: params[:sender])
     
     if @user.nil? || @user.pending_invite?
-      puts "================================================="
       User.invite!(email: params[:sender], name: params[:sender])
-      # User.invite!(:email => "new_user@example.com", :name => "John Doe")
      
     else 
       @topic = Topic.find_or_create_by(title: params[:subject])
