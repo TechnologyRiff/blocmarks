@@ -8,7 +8,7 @@ before_action :load_bookmark_and_like
 
     if @like.save
       flash[:notice] = "Bookmark liked."
-      redirect_to :back
+      redirect_to request.referer
     else
       flash[:error] = "Please try again later."
       redirect_to :back
@@ -22,10 +22,10 @@ before_action :load_bookmark_and_like
 
     if @like.destroy
       flash[:notice] = "Like deleted."
-      redirect_to topic_bookmark_path
+      redirect_to request.referer
     else
       flash[:error] = "Please try again later."
-      redirect_to topic_bookmark_path
+      redirect_to :back
     end
   end
 

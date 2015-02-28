@@ -8,7 +8,11 @@ class User < ActiveRecord::Base
          has_many :topics
          has_many :bookmarks, dependent: :destroy
          has_many :likes, dependent: :destroy
-         has_many :bookmarks, through: :likes
+         has_many :liked_bookmarks, through: :likes, source: :bookmark
+
+  def pending_invite?
+    invitation_created_at && !invitation_accepted_at
+  end        
 
   def liked(bookmark)
     likes.where(bookmark_id: bookmark.id, user_id: id).first
